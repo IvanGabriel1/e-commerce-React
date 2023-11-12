@@ -1,0 +1,29 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 60px;
+  max-height: 60px;
+  background-color: var(--first-color);
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+  min-width: 200px;
+  max-width: 800px;
+}
+
+.menu-container li {
+  list-style-type: none;
+  font-size: clamp(1.09rem, 1.05rem + 0.21vw, 1.2rem);
+  font-weight: bold;
+  color: var(--second-color);
+}
+
+.logo {
+  width: 70px;
+  height: 60px;
+}
