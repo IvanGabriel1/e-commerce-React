@@ -7,8 +7,8 @@ import { NavLink, Link } from "react-router-dom";
 function NavBar() {
   return (
     <header className="navbar-container">
-      <img className="logo" src={logo} alt="logo de la marca" />
       <Link to="/">
+        <img className="logo" src={logo} alt="logo de la marca" />
         <h3>Ecommerce</h3>
       </Link>
 
