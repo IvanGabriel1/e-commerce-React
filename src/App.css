@@ -1,10 +1,10 @@
 /**** Custom Properties ****/
 
 :root {
-  --first-color: rgb(255, 145, 0);
-  --first-alpha75-color: rgba(255, 145, 1, 0.75);
-  --first-alpha25-color: rgba(255, 145, 1, 0.25);
-  --second-color: rgb(245, 245, 245);
+  --first-color: rgb(0, 0, 0);
+  --first-alpha75-color: rgba(0, 0, 0, 0.75);
+  --first-alpha25-color: rgba(0, 0, 0, 0.25);
+  --second-color: rgb(45, 164, 2);
   --wsp-color: rgb(1, 192, 1);
   --twitter-color: rgb(1, 202, 252);
   --facebook-color: #0000a1;

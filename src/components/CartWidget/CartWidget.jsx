@@ -8,8 +8,11 @@ const CartWidget = () => {
         color: "var(--second-color)",
         fontSize: "1.5em",
         marginRight: "1em",
+        display: "flex",
+        alignItems: "center",
       }}
     >
+      <h4>0</h4>
       <BsCart4 />
     </div>
   );

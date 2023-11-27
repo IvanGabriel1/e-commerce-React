@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./itemlistcontainer.css";
-//Cuando hacermos una export directa tenemos que importarla con llaves (en App.jsx)
-/* export */ const ItemListContainer = ({ title }) => {
+import { getProducts } from "../../asyncMock";
+import ItemList from "../ItemList/ItemList";
+
+const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts()
+      .then((response) => {
+        setProducts(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
-    <div className="itemlist-container">
-      <h1 className="itemlist-title">{title}</h1>
+    <div>
+      <h1 className="itemlist-title">{greeting}</h1>
+      <ItemList products={products} />
     </div>
   );
 };
 
-//Si exportamos default la importacion es sin las llaves.
-export default ItemListContainer; //Aca lo exportamos y lo importamos en App.jsx
+export default ItemListContainer;
