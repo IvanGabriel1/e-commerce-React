@@ -9,7 +9,6 @@ function NavBar() {
     <header className="navbar-container">
       <Link to="/">
         <img className="logo" src={logo} alt="logo de la marca" />
-        <h3>Ecommerce</h3>
       </Link>
 
       <div>

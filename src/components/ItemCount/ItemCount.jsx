@@ -1,38 +1,26 @@
-import "./itemcount.css";
-import React, { useState } from "react";
+import React from "react";
+import useCounter from "../../hooks/useCounter";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-  const [cont, setCont] = useState(initial);
+const ItemCount = ({ initial, stock, onAdd }) => {
+  const { count, increment, decrement } = useCounter(initial, stock);
 
-  const incrementar = () => {
-    if (cont < stock) {
-      setCont(cont + 1);
-    }
-  };
-
-  const decrementar = () => {
-    if (cont > 1) {
-      setCont(cont - 1);
-    }
+  const handleAddToCart = () => {
+    onAdd(count);
   };
 
   return (
     <div>
       <div className="controls">
-        <button className="button" onClick={decrementar}>
+        <button className="button" onClick={decrement}>
           -
         </button>
-        <h4 className="number">{cont}</h4>
-        <button className="button" onClick={incrementar}>
+        <h4 className="number">{count}</h4>
+        <button className="button" onClick={increment}>
           +
         </button>
       </div>
       <div>
-        <button
-          className="button"
-          onClick={() => onAdd(cont)}
-          disabled={!stock}
-        >
+        <button className="button" onClick={handleAddToCart} disabled={!stock}>
           Agregar al Carrito
         </button>
       </div>
