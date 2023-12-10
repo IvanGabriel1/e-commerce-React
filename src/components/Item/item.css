@@ -1,11 +1,15 @@
 .CardItem {
   display: inline-block;
   width: 220px;
-  height: 310px;
+  height: 400px;
   margin: 1rem;
   font: monospace;
   border-radius: 10px;
-  background-color: var(--second-color);
+  background-color: var(--second-alpha75-color);
+}
+
+.Info {
+  line-height: 1.25rem;
 }
 
 .Header {
@@ -17,7 +21,7 @@
   font-weight: 600;
   font-size: 1rem;
   height: 2rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .ImgContainer {
@@ -27,7 +31,7 @@
 
 .ItemImg {
   width: 150px;
-  height: 200px;
+  height: 180px;
   background-color: var(white);
   object-fit: contain;
 }
@@ -43,18 +47,23 @@
 .ItemFooter {
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 0.5rem;
 }
 
 .Option {
   border: none;
-  background-color: black;
   color: white;
-  font-weight: bold;
+  font-weight: medium;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .Option:hover {
-  text-decoration: underline;
+  font-weight: bold;
+}
+
+.ActiveOption {
+  color: var(--second-alpha75-color);
+  font-weight: bold;
 }

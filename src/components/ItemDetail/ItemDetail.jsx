@@ -29,7 +29,9 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
       <footer className="ItemFooter">
         {quantity > 0 ? (
-          <Link to={`/cart`}>ir al carrito</Link>
+          <Link className="link-carrito" to={`/cart`}>
+            ir al carrito
+          </Link>
         ) : (
           <ItemCount initial={1} stock={stock} onAdd={onAdd} />
         )}

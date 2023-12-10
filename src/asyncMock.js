@@ -7,6 +7,8 @@ const products = [
     img: "https://i.pinimg.com/originals/91/88/ac/9188ac1cae4d3d1fa088c6d94375d118.jpg",
     stock: 15,
     description: "Remera clasica lisa color negro",
+    promotion: true,
+    discount: 30,
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ const products = [
     img: "https://4.bp.blogspot.com/-nGvwZlq-oVo/WgxPvGqAQbI/AAAAAAAHo0o/d2UDP3W1vkksWg2lyIbRrVGXc5p6t_uGwCLcBGAs/s1600/13-jeans-png-image.png",
     stock: 10,
     description: "Jean azul hombre",
+    promotion: false,
+    discount: 30,
   },
   {
     id: 3,
@@ -25,6 +29,8 @@ const products = [
     img: "https://falabella.scene7.com/is/image/Falabella/7402067_1?wid=800&hei=800&qlt=70",
     stock: 5,
     description: "Zapatillas negras pumba",
+    promotion: true,
+    discount: 30,
   },
   {
     id: 4,
@@ -34,6 +40,8 @@ const products = [
     img: "https://http2.mlstatic.com/D_NQ_NP_888771-MLA40717604965_022020-O.webp",
     stock: 8,
     description: "Remera negra estampada Pumba",
+    promotion: false,
+    discount: 30,
   },
   {
     id: 5,
@@ -43,6 +51,8 @@ const products = [
     img: "https://pbs.twimg.com/media/FCuDsSZXsAcq-my.jpg",
     stock: 8,
     description: "Remera negra estampada Pumba",
+    promotion: true,
+    discount: 30,
   },
   {
     id: 6,
@@ -52,6 +62,8 @@ const products = [
     img: "https://i.pinimg.com/originals/26/1f/bb/261fbbe9b7c66f976b379dd846c8edea.jpg",
     stock: 8,
     description: "Remera Estampada De timon y pumba",
+    promotion: false,
+    discount: 30,
   },
 ];
 
@@ -78,3 +90,16 @@ export const getProductById = (productId) => {
     }, 500);
   });
 }; /* .find trae un solo resultado */
+
+export const getProductByPromotion = (promotion) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const promoProducts = products.filter((prod) => prod.promotion === true);
+      const productsWithDiscount = promoProducts.map((prod) => ({
+        ...prod,
+        price: prod.price * (1 - prod.discount / 100), // Aplica el descuento
+      }));
+      resolve(productsWithDiscount);
+    }, 500);
+  });
+};

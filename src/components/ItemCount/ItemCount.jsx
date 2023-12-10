@@ -1,5 +1,6 @@
 import React from "react";
 import useCounter from "../../hooks/useCounter";
+import "./itemcount.css";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
   const { count, increment, decrement } = useCounter(initial, stock);
@@ -9,7 +10,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   };
 
   return (
-    <div>
+    <div className="item-count-container">
       <div className="controls">
         <button className="button" onClick={decrement}>
           -
@@ -19,9 +20,13 @@ const ItemCount = ({ initial, stock, onAdd }) => {
           +
         </button>
       </div>
-      <div>
-        <button className="button" onClick={handleAddToCart} disabled={!stock}>
-          Agregar al Carrito
+      <div className="button-agregar-container">
+        <button
+          className="button-agregar"
+          onClick={handleAddToCart}
+          disabled={!stock}
+        >
+          AGREGAR AL CARRITO
         </button>
       </div>
     </div>

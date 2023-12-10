@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Item from "../Item/Item";
 import "./itemlist.css";
 
@@ -13,10 +12,6 @@ const ItemList = ({ products }) => {
       ))}
     </div>
   );
-};
-
-ItemList.propTypes = {
-  products: PropTypes.array.isRequired,
 };
 
 export default ItemList;

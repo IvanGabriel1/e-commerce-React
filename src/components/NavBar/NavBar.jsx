@@ -1,6 +1,6 @@
 import React from "react";
 import CartWidget from "../CartWidget/CartWidget";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.jpg";
 import "./navbar.css";
 import { NavLink, Link } from "react-router-dom";
 
@@ -11,7 +11,7 @@ function NavBar() {
         <img className="logo" src={logo} alt="logo de la marca" />
       </Link>
 
-      <div>
+      <div className="menu-container">
         <NavLink
           to={`/category/remeras`}
           className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
