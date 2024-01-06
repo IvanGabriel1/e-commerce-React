@@ -18,3 +18,8 @@
     transform: rotate(360deg);
   }
 }
+
+h3 {
+  text-align: center;
+  font-weight: 100;
+}

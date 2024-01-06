@@ -31,7 +31,9 @@ function NavBar() {
           Pantalones
         </NavLink>
       </div>
-      <CartWidget />
+      <Link to={"/cart"}>
+        <CartWidget />
+      </Link>
     </header>
   );
 }

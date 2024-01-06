@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsCart4 } from "react-icons/bs";
+import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
+  const { getQuantity } = useContext(CartContext);
   return (
     <div
       style={{
@@ -12,7 +14,7 @@ const CartWidget = () => {
         alignItems: "center",
       }}
     >
-      <h4>0</h4>
+      <h4>{getQuantity()}</h4>
       <BsCart4 />
     </div>
   );
