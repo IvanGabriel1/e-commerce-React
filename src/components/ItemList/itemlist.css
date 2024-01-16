@@ -3,9 +3,6 @@
   margin: 1rem auto 0 auto;
   border: thin solid black;
   outline: thin solid black;
-  border-radius: 0.5rem;
   color: white;
-  /* border-width: 100px; El borde si forma parte de la caja */
-  /* outline-width: 100px; */
   outline-offset: -0.2rem;
 }
