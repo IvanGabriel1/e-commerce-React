@@ -22,31 +22,32 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   };
 
   return (
-    <article className="CardItem">
-      <header className="Header">
-        <h3 className="ItemHeader">{name}</h3>
-      </header>
+    <div className="item-detail-container">
+      <article className="CardItemDetail">
+        <header className="Header">
+          <h3 className="ItemHeader">{name}</h3>
+        </header>
 
-      <picture className="ImgContainer">
-        <img src={img} alt={name} className="ItemImg" />
-      </picture>
+        <picture className="ImgContainer">
+          <img src={img} alt={name} className="ItemImg" />
+        </picture>
 
-      <section>
-        <p className="Info"> Categoria: {category}</p>
-        <p className="Info"> Descripcion: {description}</p>
-        <p className="Info"> Price: ${price}</p>
-      </section>
-
-      <footer className="ItemFooter">
+        <section>
+          <p className="Info"> Categoria: {category}</p>
+          <p className="Info"> Precio: ${price}</p>
+        </section>
+      </article>
+      <p className="Info description"> Descripcion: {description}</p>
+      <div className="ItemCount">
         {quantity > 0 ? (
           <Link className="link-carrito" to={`/cart`}>
-            ir al carrito
+            Carrito
           </Link>
         ) : (
           <ItemCount initial={1} stock={stock} onAdd={onAdd} />
         )}
-      </footer>
-    </article>
+      </div>
+    </div>
   );
 };
 /*

@@ -1,0 +1,13 @@
+.carrito {
+  color: var(--second-color);
+  font-size: clamp(1rem, 0.7rem + 1.3vw, 1.5rem);
+  margin-right: 1em;
+  margin-left: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.cart-quantity {
+  text-decoration: none;
+  margin-right: 0.5rem;
+}

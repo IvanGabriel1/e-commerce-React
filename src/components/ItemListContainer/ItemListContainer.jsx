@@ -4,6 +4,11 @@ import { getProducts, getProductByCategory } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
+import { collection, where, query, getDocs } from "firebase/firestore";
+import { db } from "../../main";
+import modeloPumba from "../../assets/modelo-pumba.jpg";
+import timonPumba from "../../assets/timon-pumba.jpg";
+import verano from "../../assets/verano.jpg";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
@@ -12,25 +17,41 @@ const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    const fetchData = async () => {
-      try {
-        const asyncFunc = categoryId ? getProductByCategory : getProducts;
-        const response = await asyncFunc(categoryId);
-        console.log("Products:", response);
-        setProducts(response);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
 
-    fetchData();
+    const getData = async () => {
+      const queryRef = !categoryId
+        ? collection(db, "productos")
+        : query(
+            collection(db, "productos"),
+            where("category", "==", categoryId)
+          );
+
+      const response = await getDocs(queryRef);
+
+      const products = response.docs.map((doc) => {
+        const newProduct = {
+          ...doc.data(),
+          id: doc.id,
+        };
+        return newProduct;
+      });
+      setTimeout(() => {
+        setProducts(products);
+        setIsLoading(false);
+      }, 1000);
+    };
+    getData();
   }, [categoryId]);
 
   return (
     <div>
       <h1 className="itemlist-title">{greeting}</h1>
+      <section className="imagenes-container">
+        <img src={verano} alt="Bienvenido verano" />
+        <img src={modeloPumba} alt="Modelo de pumba" />
+        <img src={timonPumba} alt="Timon y Pumba" />
+      </section>
+      <hr />
       {isLoading ? <Spinner /> : <ItemList products={products} />}
     </div>
   );

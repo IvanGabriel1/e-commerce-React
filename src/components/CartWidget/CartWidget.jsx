@@ -1,20 +1,13 @@
 import React, { useContext } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { CartContext } from "../../context/CartContext";
+import "./cartWidget.css";
 
 const CartWidget = () => {
   const { getQuantity } = useContext(CartContext);
   return (
-    <div
-      style={{
-        color: "var(--second-color)",
-        fontSize: "1.5em",
-        marginRight: "1em",
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      <h4>{getQuantity()}</h4>
+    <div className="carrito">
+      <span className="cart-quantity"> {getQuantity()} </span>
       <BsCart4 />
     </div>
   );

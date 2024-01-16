@@ -1,4 +1,21 @@
 .itemlist-title {
-  margin-top: 1rem;
+  margin: 1rem auto 1rem auto;
   text-align: center;
+  font-size: clamp(1.89rem, 1.71rem + 0.89vw, 2.34rem);
+  background-color: rgb(232, 138, 6);
+}
+
+.imagenes-container {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  place-items: center;
+  margin: auto;
+}
+
+.imagenes-container img {
+  width: 30vw;
+  min-width: 250px;
+  height: 300px;
 }

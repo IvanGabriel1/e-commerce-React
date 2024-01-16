@@ -1,0 +1,90 @@
+.checkout-container {
+  width: 85vw;
+  max-width: 800px;
+  margin: 2rem auto 0 auto;
+  border-radius: 5px;
+  box-shadow: 0.25rem 0.25rem 1rem rgba(58, 32, 32, 0.5);
+}
+
+.checkout-container hr {
+  margin-bottom: 0;
+}
+
+.resumen {
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+  color: black;
+  align-items: center;
+  font-size: clamp(0.7rem, 0.5rem + 2vw, 1.2rem);
+}
+
+.checkout-form {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.checkout-form *:valid {
+  border-color: rgb(24, 252, 24);
+}
+
+.c-form-nombre,
+.c-form-telefono,
+.c-form-email,
+.c-form-r-email {
+  color: black;
+  height: 2rem;
+  font-weight: 700;
+  font-size: clamp(0.7rem, 0.5rem + 2vw, 1.2rem);
+  margin-bottom: 1rem;
+}
+
+.c-form-nombre input,
+.c-form-telefono input,
+.c-form-email input,
+.c-form-r-email input {
+  height: 1.75rem;
+  background-color: lightgray;
+  border: none;
+  border-bottom: thin solid var(--second-color);
+}
+
+.c-form-btn-comprar {
+  height: 3rem;
+  background-color: var(--second-color);
+  font-size: clamp(0.7rem, 0.5rem + 2vw, 1.2rem);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  transition: opacity 0.5s ease;
+}
+
+.c-form-btn-comprar:hover {
+  opacity: 0.5;
+}
+
+.checkout-form button:valid {
+  border-color: var(--second-color);
+}
+
+.error {
+  color: red;
+  font-size: clamp(0.7rem, 0.5rem + 0.6vw, 1rem);
+}
+
+.c-form-confirmacion {
+  color: var(--second-color);
+  font-size: clamp(0.7rem, 0.5rem + 2vw, 1.2rem);
+  text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
