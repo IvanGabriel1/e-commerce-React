@@ -9,8 +9,7 @@
   place-items: center;
   width: 90%;
   max-width: 1070px;
-  height: 50vh;
-  margin: auto;
+  margin: 1rem auto 0 auto;
 }
 
 .CardItemDetail {
@@ -60,14 +59,23 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
   .item-detail-container {
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas:
       "card"
       "description"
       "count";
+  }
+
+  .CardItemDetail {
+  }
+
+  .description {
+  }
+
+  .ItemCount {
   }
 }

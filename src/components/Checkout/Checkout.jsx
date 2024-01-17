@@ -17,7 +17,7 @@ const Checkout = () => {
   const [user, setUser] = useState(initialUserState);
   const [formErrors, setFormErrors] = useState({});
   const [orderGenerated, setOrderGenerated] = useState(false);
-  const { cart, getTotal } = useContext(CartContext);
+  const { cart, getTotal, clearCart } = useContext(CartContext);
 
   const updateUser = (event) => {
     setUser((prevUser) => ({
@@ -45,13 +45,23 @@ const Checkout = () => {
       errors.repetirMail = "No coinciden los eMail";
     }
 
-    console.log(errors);
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
   const getOrder = async (event) => {
     event.preventDefault();
+
+    const cartTotal = getTotal();
+
+    if (cartTotal === 0) {
+      Swal.fire({
+        icon: "warning",
+        title: "Carrito vacío",
+        text: "Agrega productos al carrito antes de confirmar la compra.",
+      });
+      return;
+    }
 
     const isFormValid = validateForm();
 
@@ -67,13 +77,11 @@ const Checkout = () => {
         const order = {
           buyer: user,
           items: cart,
-          total: getTotal(),
+          total: cartTotal,
         };
 
         const ordersCollection = collection(db, "orders");
         const docRef = await addDoc(ordersCollection, order);
-
-        console.log(`orden generada con el N° ${docRef.id}`);
 
         Swal.fire({
           position: "center",
@@ -86,6 +94,7 @@ const Checkout = () => {
         setUser(initialUserState);
         setFormErrors({});
         setOrderGenerated(true);
+        clearCart();
       } catch (error) {
         console.error("Error al agregar la orden:", error);
       }
@@ -112,6 +121,7 @@ const Checkout = () => {
             type="text"
             placeholder="Ingrese su nombre*"
             name="nombre"
+            id="nombre"
             onChange={updateUser}
             value={user.nombre}
           />
@@ -127,6 +137,7 @@ const Checkout = () => {
             type="number"
             placeholder="Ingrese su telefono*"
             name="telefono"
+            id="telefono"
             onChange={updateUser}
             value={user.telefono}
           />
@@ -142,6 +153,7 @@ const Checkout = () => {
             type="email"
             placeholder="Ingrese su eMail*"
             name="email"
+            id="email"
             onChange={updateUser}
             value={user.email}
           />
@@ -154,6 +166,7 @@ const Checkout = () => {
             type="email"
             placeholder="Reingrese su eMail*"
             name="repetirMail"
+            id="repetirMail"
             onChange={updateUser}
             value={user.repetirMail}
           />
