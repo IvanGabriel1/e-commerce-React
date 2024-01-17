@@ -18,6 +18,7 @@ const Checkout = () => {
   const [formErrors, setFormErrors] = useState({});
   const [orderGenerated, setOrderGenerated] = useState(false);
   const { cart, getTotal, clearCart } = useContext(CartContext);
+  const [orderId, setOrderId] = useState(null);
 
   const updateUser = (event) => {
     setUser((prevUser) => ({
@@ -29,8 +30,12 @@ const Checkout = () => {
   const validateForm = () => {
     const errors = {};
 
+    const nameRegex = /^[a-zA-Z\s]*$/;
+
     if (!user.nombre.trim()) {
       errors.nombre = "Nombre es requerido";
+    } else if (!nameRegex.test(user.nombre.trim())) {
+      errors.nombre = "Nombre debe contener solo letras";
     }
 
     if (!user.telefono.trim()) {
@@ -82,6 +87,8 @@ const Checkout = () => {
 
         const ordersCollection = collection(db, "orders");
         const docRef = await addDoc(ordersCollection, order);
+
+        setOrderId(docRef.id);
 
         Swal.fire({
           position: "center",
@@ -180,8 +187,10 @@ const Checkout = () => {
         </button>
         {orderGenerated && (
           <h2 className="c-form-confirmacion">
-            La orden se ha generado correctamente. <br></br> Gracias por su
-            compra!
+            La orden se ha generado correctamente.
+            <br></br>
+            ID: {orderId}
+            <br></br> Gracias por su compra!
           </h2>
         )}
       </form>
