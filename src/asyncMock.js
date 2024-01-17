@@ -81,25 +81,12 @@ export const getProductByCategory = (category) => {
       resolve(products.filter((prod) => prod.category === category));
     }, 500);
   });
-}; /* .filter trae todos los resultados */
+};
 
 export const getProductById = (productId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products.find((prod) => prod.id === parseInt(productId)));
-    }, 500);
-  });
-}; /* .find trae un solo resultado */
-
-export const getProductByPromotion = (promotion) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const promoProducts = products.filter((prod) => prod.promotion === true);
-      const productsWithDiscount = promoProducts.map((prod) => ({
-        ...prod,
-        price: prod.price * (1 - prod.discount / 100), // Aplica el descuento
-      }));
-      resolve(productsWithDiscount);
     }, 500);
   });
 };

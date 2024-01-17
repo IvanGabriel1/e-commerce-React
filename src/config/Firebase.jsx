@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics, process } from "firebase/analytics";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
-import productos from "../asyncMock";
+import { process } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,17 +17,7 @@ const firebaseConfig = {
   appId: process.env.VITE_FIREBASE_APID,
 };
 
-console.log("Se contecto");
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
-
-productos.forEach((producto) => {
-  addDoc(collection(db, "productos"), producto)
-    .then((docRef) => {
-      console.log(`Se agrego el documento con id: ${docRef.id}`);
-    })
-    .catch((error) => console.log(error));
-});

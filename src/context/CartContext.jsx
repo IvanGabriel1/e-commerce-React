@@ -36,10 +36,9 @@ export const CartContextProvider = ({ children }) => {
     return cart.some((prod) => prod.id === itemId);
   };
 
-  //getTotal y getQuantity hacen lo mismo. Solo cambia la manera.
   const getTotal = () => {
     const total = cart.reduce(
-      (acc, item) => acc + item.price * item.quantity, //valor actual + calculo de lo nuevo
+      (acc, item) => acc + item.price * item.quantity,
       0
     );
     return total;
@@ -55,7 +54,14 @@ export const CartContextProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addItem, removeItem, clearCart, getTotal, getQuantity }}
+      value={{
+        cart,
+        addItem,
+        removeItem,
+        clearCart,
+        getTotal,
+        getQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>

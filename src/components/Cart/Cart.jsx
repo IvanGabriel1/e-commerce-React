@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import modeloPumba from "../../assets/modelo-pumba.jpg";
@@ -33,7 +33,7 @@ const Cart = () => {
           <th>Cantidad</th>
           <th>Precio</th>
           <th>Subtotal</th>
-          <th>🛒</th>
+          <th>{"🛒"}</th>
         </tr>
       </thead>
       <tbody className="carrito-body">

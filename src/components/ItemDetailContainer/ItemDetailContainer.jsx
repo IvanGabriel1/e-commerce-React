@@ -1,5 +1,5 @@
 import "./itemDetailContainer.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
@@ -38,5 +38,5 @@ const ItemDetailContainer = () => {
     </div>
   );
 };
-/*Cuando haces {...product}, estás tomando todas las propiedades del objeto product y las estás pasando como props individuales al componente ItemDetail.*/
+
 export default ItemDetailContainer;

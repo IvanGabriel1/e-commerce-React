@@ -49,7 +49,7 @@ sweetalert2
 # List
 
 - Clonar Repositorio;
-  - git clone linkRepo
+  - git clone https://github.com/IvanGabriel1/e-commerce-React
 - Moverse a la carpeta raiz del proyecto:
   - cd nombreCarpeta
 - Instalar Las dependencias;
@@ -99,4 +99,4 @@ Formulario donde el usuario carga sus datos, confirma compra y obtiene un ID de 
 
 ## Datos de contacto
 
-link de linkedin
+https://www.linkedin.com/in/ivan-braun-a690aa17a/
