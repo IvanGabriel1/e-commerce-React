@@ -31,6 +31,7 @@ const Checkout = () => {
     const errors = {};
 
     const nameRegex = /^[a-zA-Z\s]*$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!user.nombre.trim()) {
       errors.nombre = "Nombre es requerido";
@@ -43,11 +44,15 @@ const Checkout = () => {
     }
 
     if (!user.email) {
-      errors.email = "eMail Invalido";
+      errors.email = "Email es requerido";
+    } else if (!emailRegex.test(user.email.trim())) {
+      errors.email = "Formato de email inválido";
     }
 
     if (!user.repetirMail) {
-      errors.repetirMail = "No coinciden los eMail";
+      errors.repetirMail = "No coinciden los emails";
+    } else if (!emailRegex.test(user.repetirMail.trim())) {
+      errors.repetirMail = "Formato de email inválido";
     }
 
     setFormErrors(errors);

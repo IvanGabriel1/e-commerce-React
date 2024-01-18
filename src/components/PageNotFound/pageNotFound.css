@@ -1,13 +1,21 @@
+.page-error-container {
+  min-height: 500px;
+}
+
 .page-error-container img {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 400px;
-  height: 300px;
+  width: 60%;
+  max-width: 400px;
+  min-width: 300px;
+  min-height: 200px;
   transform: translate(-50%, -50%);
 }
 
 .page-error-container h2 {
   color: red;
   text-align: center;
+  font-size: 2rem;
+  margin: 4rem;
 }
