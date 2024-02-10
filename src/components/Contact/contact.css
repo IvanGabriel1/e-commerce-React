@@ -1,5 +1,6 @@
 .title-contacto {
   margin: 2rem auto 0 auto;
+  text-align: center;
   font-size: clamp(1.31rem, 1.24rem + 0.37vw, 1.5rem);
   text-decoration: underline;
   text-decoration-color: var(--second-color);
@@ -57,13 +58,13 @@
 @media screen and (min-width: 1024px) {
   .contact-cards-container {
     grid-template-columns: repeat(4, 1fr);
-    margin-left: 2rem;
-    margin-right: 2rem;
-    max-width: 1480px;
+    gap: 1rem;
+    max-width: 1050px;
+    margin: auto;
   }
 
   .card-contact {
-    max-width: 20vw;
+    max-width: 250px;
     height: 20vh;
   }
 }

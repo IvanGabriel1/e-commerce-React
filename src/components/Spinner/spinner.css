@@ -1,8 +1,14 @@
+.spinner-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .spinner {
   width: 5vw;
   height: 5vw;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   border-radius: 50%;
   border: 0.5vw solid rgba(0, 0, 0, 0.1);
   border-left-color: #09f;
@@ -17,9 +23,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
-
-h3 {
-  text-align: center;
-  font-weight: 100;
 }
