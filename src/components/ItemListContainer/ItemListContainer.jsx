@@ -44,7 +44,7 @@ const ItemListContainer = ({ greeting }) => {
   }, [categoryId]);
 
   return (
-    <div>
+    <div className="itemlist-container">
       <h1 className="itemlist-title">{greeting}</h1>
       <section className="imagenes-container">
         <img src={verano} alt="Bienvenido verano" />

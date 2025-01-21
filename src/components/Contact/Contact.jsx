@@ -3,7 +3,7 @@ import "./contact.css";
 
 const Contact = () => {
   return (
-    <>
+    <div className="contact-container">
       <hr className="hr" />
       <h3 className="title-contacto">
         <b>Contacto:</b>
@@ -143,7 +143,7 @@ const Contact = () => {
           </div>
         </div>
       </article>
-    </>
+    </div>
   );
 };
 
